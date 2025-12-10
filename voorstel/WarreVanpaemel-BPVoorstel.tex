@@ -1,0 +1,77 @@
+%==============================================================================
+% Sjabloon onderzoeksvoorstel bachproef
+%==============================================================================
+% Gebaseerd op document class `hogent-article'
+% zie <https://github.com/HoGentTIN/latex-hogent-article>
+
+% Voor een voorstel in het Engels: voeg de documentclass-optie [english] toe.
+% Let op: kan enkel na toestemming van de bachelorproefcoördinator!
+\documentclass{hogent-article}
+
+% Invoegen bibliografiebestand
+\addbibresource{voorstel.bib}
+
+% Informatie over de opleiding, het vak en soort opdracht
+\studyprogramme{Professionele bachelor toegepaste informatica}
+\course{Bachelorproef}
+\assignmenttype{Onderzoeksvoorstel}
+% Voor een voorstel in het Engels, haal de volgende 3 regels uit commentaar
+% \studyprogramme{Bachelor of applied information technology}
+% \course{Bachelor thesis}
+% \assignmenttype{Research proposal}
+
+\academicyear{2025--2026} % TODO: pas het academiejaar aan
+
+% TODO: Werktitel
+\title{Hoe kan een AI-gestuurd vision systeem de relatie analyseren tussen schappositie 
+en voedingswaarde (Nutri-Score) van plant-based vleesvervangers en ontbijtgranen in Belgische supermarkten?}
+
+% TODO: Studentnaam en emailadres invullen
+\author{Warre Vanpaemel}
+\email{warre.vanpaemel@student.hogent.be}
+
+% TODO: Geef de co-promotor op
+\supervisor[Co-promotor]{/}
+% S. Beekman (Synalco, \href{mailto:sigrid.beekman@synalco.be}{sigrid.beekman@synalco.be})
+% Binnen welke specialisatierichting uit 3TI situeert dit onderzoek zich?
+% Kies uit deze lijst:
+%
+% - AI \& Data Engineering
+%
+\specialisation{AI \& Data Engineering}
+\keywords{Computer Vision, Object Detection, Nutri-Score, YOLOv8, Shelf Positioning, Product Recognition, Spatial Analysis}
+
+\begin{document}
+
+\begin{abstract}
+In het kader van de Vlaamse eiwitstrategie 2021--2030, die streeft naar 60\% plantaardige eiwitconsumptie, 
+en de toenemende beschikbaarheid van plant-based vleesvervangers en gezondere ontbijtgranen in Belgische supermarkten,
+komt de vraag of de schappositie van deze producten correleert met hun voedingswaarde. 
+Uit retailonderzoek blijkt dat producten op ooghoogte, en specifiek op kinderooghoogte, een grote invloed hebben op aankoopgedrag, 
+maar er ontbreekt objectieve, geautomatiseerde methoden om de relatie tussen schappositie en 
+gezondheidswaarde (Nutri-Score) systematisch te analyseren. Dit onderzoek beantwoordt de vraag: 
+hoe kan een AI-gestuurd vision systeem de relatie analyseren tussen schappositie (kinderooghoogte, volwassenenooghoogte, hoog) 
+en voedingswaarde (Nutri-Score A-E) van plant-based vleesvervangers en ontbijtgranen in Belgische supermarkten? 
+De doelstelling is het ontwikkelen van een end-to-end AI-pipeline die automatisch producten detecteert via YOLOv8 
+object detection, Nutri-Score labels herkent door middel van template matching en OCR, 
+de verticale schappositie classificeert in drie hoogtzones, en een statische weergave van de gevonden correlaties weergeeft. 
+De methodologie omvat het fotograferen en annoteren van 100--150 schapfoto's in 3--5 supermarktfilialen, 
+het trainen van deep learning modellen op deze dataset, het implementeren van spatial analysis algoritmes voor 
+hoogteclassificatie, en het valideren van de AI-nauwkeurigheid tegen handmatige metingen.
+Verwacht wordt dat het systeem een detectienauwkeurigheid van minimaal 85\% bereikt en aantoont of er een 
+significante correlatie bestaat tussen schappositie en Nutri-Score, specifiek of ongezonde producten (Nutri-Score D/E) 
+disproportioneel op kinderooghoogte gepositioneerd worden. De meerwaarde voor supermarktketens ligt in een schaalbare 
+monitoring-tool voor category management en naleving van ethische marketing-richtlijnen, terwijl beleidsmakers 
+objectieve data krijgen om de effectiviteit van de Vlaamse eiwitstrategie te evalueren en eventuele regulering 
+van schappositie voor ongezonde producten te onderbouwen. 
+\end{abstract}
+
+\tableofcontents
+
+% De hoofdtekst van het voorstel zit in een apart bestand, zodat het makkelijk
+% kan opgenomen worden in de bijlagen van de bachelorproef zelf.
+\input{voorstel-inhoud}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}
