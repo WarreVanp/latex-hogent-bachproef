@@ -19,10 +19,10 @@
 \usepackage{csquotes}
 \DeclareLanguageMapping{dutch}{dutch-apa}
 
-\addbibresource{references.bib}
+\addbibresource{voorstel.bib}
 
 \usepackage{graphicx}
-\graphicspath{{.}{../graphics/}}
+\graphicspath{{.}{../graphics/}} % Pad aangepast naar het hogere niveau (../graphics/)
 
 \usepackage{caption}
 \captionsetup{font=small,labelfont=bf}
@@ -44,12 +44,12 @@
 \setcounter{tocdepth}{2}
 
 \hyphenation{
-  klant-vragen
-  gebruikers-account-analyse
-  klanten-ser-vice
-  door-ver-wij-zingen
-  ver-wer-king
-  ge-au-to-ma-ti-seer-de
+ klant-vragen
+ gebruikers-account-analyse
+ klanten-ser-vice
+ door-ver-wij-zingen
+ ver-wer-king
+ ge-au-to-ma-ti-seer-de
 }
 
 % --- INFO OVER OPDRACHT ------------------------------------------------------
@@ -60,19 +60,20 @@
 \academicyear{2024--2025}
 
 % TODO (fase 1): Werktitel
-\title{NLP-chatbots voor efficiëntere klantenservice: reductie van repetitieve vragen en verkorting van responstijden via accountanalyse bij Bol.com}
+\title{Hoe kan een AI-gestuurd systeem de relatie analyseren tussen schappositie (kinderooghoogte, volwassenenooghoogte, hoog) 
+en voedingswaarde (Nutri-Score A-E) van plant-based vleesvervangers en ontbijtgranen in Belgische supermarkten?}
 
 % TODO (fase 1): Studentnaam en emailadres invullen
 \author{Warre Vanpaemel}
 \email{warre.vanpaemel@student.hogent.be}
 
-% TODO (fase 1): Medestudent
+% TODO (fase 1): Medestudent    
 % Schrijf je het voorstel in samenwerking met een medestudent? Geef dan de naam
 % en emailadres hier. Als je het voorstel alleen schrijft, verwijder dan deze
 % regels of zet ze in commentaar.
 
 % TODO (fase 1): Geef hier de link naar jullie Github-repository
-\projectrepo{}
+\projectrepo{https://github.com/WarreVanp/latex-hogent-bachproef}
 
 \specialisation{AI \& Data Engineering}
 \keywords{AI, klantenservice, gebruikersanalyse, automatisering, NLP}
@@ -80,26 +81,17 @@
 \begin{document}
 
 \begin{abstract}
-In het kader van de Vlaamse eiwitstrategie 2021--2030, die streeft naar 60\% plantaardige eiwitconsumptie, 
-en de toenemende beschikbaarheid van plant-based vleesvervangers en gezondere ontbijtgranen in Belgische supermarkten,
-komt de vraag of de schappositie van deze producten correleert met hun voedingswaarde. 
-Uit retailonderzoek blijkt dat producten op ooghoogte, en specifiek op kinderooghoogte, een grote invloed hebben op aankoopgedrag, 
-maar er ontbreekt objectieve, geautomatiseerde methoden om de relatie tussen schappositie en 
-gezondheidswaarde (Nutri-Score) systematisch te analyseren. Dit onderzoek beantwoordt de vraag: 
-hoe kan een AI-gestuurd vision systeem de relatie analyseren tussen schappositie (kinderooghoogte, volwassenenooghoogte, hoog) 
-en voedingswaarde (Nutri-Score A-E) van plant-based vleesvervangers en ontbijtgranen in Belgische supermarkten? 
-De doelstelling is het ontwikkelen van een end-to-end AI-pipeline die automatisch producten detecteert via YOLOv8 
-object detection, Nutri-Score labels herkent door middel van template matching en OCR, 
-de verticale schappositie classificeert in drie hoogtzones, en een statische weergave van de gevonden correlaties weergeeft. 
-De methodologie omvat het fotograferen en annoteren van 100--150 schapfoto's in 3--5 supermarktfilialen, 
-het trainen van deep learning modellen op deze dataset, het implementeren van spatial analysis algoritmes voor 
-hoogteclassificatie, en het valideren van de AI-nauwkeurigheid tegen handmatige metingen.
-Verwacht wordt dat het systeem een detectienauwkeurigheid van minimaal 85\% bereikt en aantoont of er een 
-significante correlatie bestaat tussen schappositie en Nutri-Score, specifiek of ongezonde producten (Nutri-Score D/E) 
-disproportioneel op kinderooghoogte gepositioneerd worden. De meerwaarde voor supermarktketens ligt in een schaalbare 
-monitoring-tool voor category management en naleving van ethische marketing-richtlijnen, terwijl beleidsmakers 
-objectieve data krijgen om de effectiviteit van de Vlaamse eiwitstrategie te evalueren en eventuele regulering 
-van schappositie voor ongezonde producten te onderbouwen. 
+Dit onderzoek pakt het gebrek aan geautomatiseerde en objectieve methoden aan om de relatie 
+tussen \textbf{schappositie} en \textbf{voedingswaarde} (Nutri-Score $A-E$) van plant-based producten
+in Belgische supermarkten te analyseren. Voortbouwend op de Vlaamse eiwitstrategie 
+(die streeft naar $60\%$ plantaardige eiwitconsumptie) en het feit dat ooghoogte het aankoopgedrag beïnvloedt, 
+is de centrale vraag hoe een AI-gestuurd systeem deze correlatie kan vaststellen. 
+De doelstelling is de ontwikkeling van een end-to-end AI-pipeline, waarbij \textbf{YOLOv8} object detection en 
+OCR (Optical Character Recognition) worden ingezet om producten en Nutri-Scores te herkennen op $100-150$ geannoteerde schapfoto's. 
+Na classificatie in drie verticale zones (kinderooghoogte, volwassenenooghoogte, hoog), zal het systeem statistische correlaties tonen. 
+De verwachte uitkomst is een systeem met minimaal $85\%$ detectienauwkeurigheid dat bewijs levert over 
+de positionering van ongezonde producten (Nutri-Score $D/E$) op kinderooghoogte. Dit biedt supermarktketens een schaalbare monitoring-tool 
+en geeft beleidsmakers objectieve data om ethische marketingrichtlijnen te evalueren.
 \end{abstract}
 
 \tableofcontents
@@ -110,28 +102,28 @@ van schappositie voor ongezonde producten te onderbouwen.
 
 \section{Introductie}
 
-Dit bacheloronderzoek richt zich op het ontwikkelen van een **AI-gestuurd computer vision systeem** 
-om de schappositie van **plant-based vleesvervangers en ontbijtgranen** in Belgische supermarkten objectief
-te analyseren en de relatie te onderzoeken met hun **voedingswaarde** (Nutri-Score A-E). De Vlaamse eiwitstrategie
-2021--2030 streeft naar een verschuiving waarbij minstens 60\% van de eiwitinname plantaardig is. Tegelijkertijd 
+Dit bacheloronderzoek richt zich op het ontwikkelen van een \textbf{AI-gestuurd computer systeem} 
+om de schappositie van \textbf{plant-based vleesvervangers en ontbijtgranen} in Belgische supermarkten objectief
+te analyseren en de relatie te onderzoeken met hun \textbf{voedingswaarde} (Nutri-Score $A-E$). De Vlaamse eiwitstrategie
+2021--2030 streeft naar een verschuiving waarbij minstens $60\%$ van de eiwitinname plantaardig is. Tegelijkertijd 
 breiden Belgische supermarktketens hun plant-based aanbod uit. Voor beleidsmakers en category managers is het cruciaal 
 om inzicht te hebben in hoe producten gepositioneerd worden en of consumenten hierbij een voorkeur voor gezondere keuzes 
 krijgen, bijvoorbeeld door gezonde producten op ooghoogte te plaatsen.
 
 \subsection{Probleemstelling}
 
-Handmatige audits van schappen zijn tijdrovend, duur en subjectief. Er bestaat geen schaalbare methode om systematisch te meten welke producten op welke hoogte en met welke zichtbaarheid aanwezig zijn, noch hoe dit samenhangt met de voedingswaarde. Dit vormt een belemmering voor:
+Handmatige analyses van schappen zijn tijdrovend, duur en subjectief. Er bestaat geen schaalbare methode om systematisch te meten welke producten op welke hoogte en met welke zichtbaarheid aanwezig zijn, noch hoe dit samenhangt met de voedingswaarde. Dit vormt een belemmering voor:
 \begin{itemize}
-    \item Category managers die schapindeling willen optimaliseren;
-    \item Beleidsmakers die de effectiviteit van de Vlaamse eiwitstrategie willen monitoren;
-    \item Retail consultants die evidence-based advies willen geven over schapindeling.
+\item Category managers die schapindeling willen optimaliseren
+\item Beleidsmakers die de effectiviteit van de Vlaamse eiwitstrategie willen monitoren
+\item Retail consultants die evidence-based advies willen geven over schapindeling
 \end{itemize}
 
 \subsection{Centrale onderzoeksvraag}
 
 \begin{quote}
-Hoe kan een AI-gestuurd vision-systeem automatisch de relatie analyseren tussen schappositie 
-(kinderooghoogte, volwassenenooghoogte, hoog) en voedingswaarde (Nutri-Score A-E) van plant-based vleesvervangers 
+Hoe kan een AI-gestuurd systeem automatisch de relatie analyseren tussen schappositie 
+(kinderooghoogte, volwassenenooghoogte, hoog) en voedingswaarde (Nutri-Score $A-E$) van plant-based vleesvervangers 
 en ontbijtgranen in Belgische supermarkten?
 \end{quote}
 
@@ -139,45 +131,49 @@ en ontbijtgranen in Belgische supermarkten?
 
 De doelstellingen van dit onderzoek zijn:
 \begin{enumerate}
-    \item Ontwikkelen van een end-to-end pipeline die producten detecteert, Nutri-Score herkent, verticale zones classificeert en correlaties berekent.
-    \item Opbouwen van een gelabelde dataset van Belgische schapfoto's met annotaties voor product, label en schapzone.
-    \item Benchmarken en optimaliseren van object-detection en label-recognition modellen voor supermarktcondities.
-    \item Valideren van nauwkeurigheid tegen handmatige ground-truth metingen.
-    \item Levering van praktische visualisaties en KPI’s die bruikbaar zijn voor retailers en beleidsmakers.
+\item Ontwikkelen van een end-to-end pipeline die producten detecteert, Nutri-Score herkent, verticale zones classificeert en correlaties berekent.
+\item Opbouwen van een gelabelde dataset van Belgische schapfoto's met annotaties voor product, label en schapzone.
+\item Optimaliseren van object-detection en label-recognition modellen voor supermarktcondities.
+\item Valideren van nauwkeurigheid tegen handmatige metingen.
+\item Levering van praktische visualisaties en KPI's die bruikbaar zijn voor retailers en beleidsmakers.
 \end{enumerate}
 
 \section{State-of-the-Art}
 
 \subsection{Context en relevantie}
 
-Recente literatuur toont een toename van plant-based producten in Europese schappen en een groeiende vraag naar objectieve monitoringtools. Productherkenning in retail combineert vaak **beeld- en tekstinformatie** (multimodaal) om fijne onderscheidingen tussen producten te maken.
+Recente literatuur toont een toename van plant-based producten in Europese schappen 
+en een groeiende vraag naar objectieve monitoringtools. Productherkenning in retail combineert 
+vaak \textbf{beeld- en tekstinformatie} (multimodaal) om fijne onderscheidingen tussen producten te maken.
 
 \subsection{Belangrijke bevindingen}
 
 \begin{itemize}
-    \item Multimodale benaderingen (beeld + OCR) verhogen de classificatie-robustheid in fine-grained grocery recognition \cite{Pettersson2024, Patel2025}.
-    \item De **YOLO-familie** (YOLOv8) biedt een optimale trade-off tussen snelheid en nauwkeurigheid, geschikt voor real-time detectie \cite{Redmon2024}.
-    \item Dense packing en kleine objecten blijven uitdagingen; technieken zoals tiling en aangepaste non-max suppression helpen hier \cite{Goldman2019}.
-    \item Nutri-Score en andere labels kunnen betrouwbaar worden herkend met OCR gecombineerd met template matching of kleine CNN-classifiers \cite{Patel2025}.
-    \item Spatial analysis (facing count, shelf share, eye-level premium) wordt meestal handmatig uitgevoerd; automatische methodes zijn schaars \cite{Goldman2019}.
+\item Multimodale benaderingen (beeld + OCR) verhogen de classificatie-robustheid in grocery recognition~\cite{Pettersson2024, Patel2025}.
+\item De \textbf{YOLO-familie} (YOLOv8) biedt een optimale trade-off tussen snelheid en nauwkeurigheid, geschikt voor real-time detectie~\cite{Redmon2024}.
+\item Dense packing en kleine objecten blijven uitdagingen; technieken zoals tiling en aangepaste non-max suppression helpen hier~\cite{Goldman2019}.
+\item Nutri-Score en andere labels kunnen betrouwbaar worden herkend met OCR gecombineerd met template matching of kleine CNN-classifiers~\cite{Patel2025}.
+\item Spatial analysis (facing count, shelf share, eye-level premium) wordt meestal handmatig uitgevoerd; automatische methodes zijn schaars~\cite{Goldman2019}.
 \end{itemize}
 
-\subsection{Gelijksoortige onderzoeken en lacunes}
+\subsection{Gelijksoortige onderzoeken}
 
-Er zijn studies op grocery product recognition datasets, maar weinig focussen op **plant-based producten** gecombineerd met Nutri-Score en verticale schapposities in Belgische context. Bestaande datasets missen vaak lokale merken en het specifieke labelgebruik. Dit onderzoek vult deze lacune met:
+Er zijn studies op grocery product recognition datasets, maar weinig focussen 
+op \textbf{plant-based producten} gecombineerd met Nutri-Score en verticale schapposities in Belgische context. 
+Bestaande datasets missen vaak lokale merken en het specifieke labelgebruik. Dit onderzoek vult deze gebrekken aan met:
 \begin{itemize}
-    \item Regionale dataset van Belgische filialen.
-    \item Focus op correlatie schappositie vs Nutri-Score.
-    \item Technische diepgang: benchmarking van detectors, spatial analysis, facing counts.
+\item Regionale dataset van Belgische filialen.
+\item Focus op correlatie schappositie vs Nutri-Score.
+\item Technische diepgang: benchmarking van detectors, spatial analysis, facing counts.
 \end{itemize}
 
 \subsection{Toegevoegde waarde}
 
 Dit onderzoek levert:
 \begin{itemize}
-    \item Een reproduceerbare, multimodale AI-pipeline voor detectie, labelherkenning en positioneringsanalyse.
-    \item Statistische evaluatie van de associatie tussen verticale schappositie en voedingswaarde.
-    \item Praktische visualisaties en KPI’s voor category management en beleidsanalyse.
+\item Een reproduceerbare, multimodale AI-pipeline voor detectie, labelherkenning en positioneringsanalyse.
+\item Statistische evaluatie van de associatie tussen verticale schappositie en voedingswaarde.
+\item Praktische visualisaties en KPI's voor category management en beleidsanalyse.
 \end{itemize}
 
 \section{Methodologie}
@@ -186,60 +182,60 @@ Dit onderzoek levert:
 
 De pipeline bestaat uit:
 \begin{enumerate}
-    \item \textbf{Data-acquisitie:} 100--150 hoge-res foto’s van schappen in 3--5 filialen; metadata (filiaal, schap, opnamehoek, tijdstip).
-    \item \textbf{Annotatie:} Bounding boxes voor producten, labels (Nutri-Score, Bio, Vegan), productcategorie, schapzone en facing ID met CVAT/LabelImg; datasetbeheer via Roboflow.
-    \item \textbf{Object Detection:} YOLOv8 (primary), Faster R-CNN (benchmark); fine-tuning, augmentaties met Albumentations, tiling-strategie.
-    \item \textbf{Label Recognition:} EasyOCR + Tesseract; template matching of kleine CNN-classifier voor Nutri-Score badges; fallback logica met product lookup.
-    \item \textbf{Spatial Analysis:} Verticale zoneclassificatie, facing counting, shelf share berekening, label zichtbaarheidscore.
-    \item \textbf{Analyse:} Statistische tests (chi-kwadraat, ANOVA/Kruskal-Wallis, regressie), validatie tegen handmatige ground-truth.
-    \item \textbf{Visualisatie:} Annotated images, heatmaps, KPI dashboard (Streamlit/Plotly Dash), export CSV/PDF.
+\item \textbf{Data-acquisitie:} $100-150$ hoge-res foto’s van schappen in $3-5$ filialen; metadata (filiaal, schap, opnamehoek, tijdstip).
+\item \textbf{Annotatie:} Bounding boxes voor producten, labels (Nutri-Score, Bio, Vegan), productcategorie, schapzone en facing ID met CVAT/LabelImg; datasetbeheer via Roboflow.
+\item \textbf{Object Detection:} YOLOv8 (primary), Faster R-CNN (benchmark); fine-tuning, augmentaties met Albumentations, tiling-strategie.
+\item \textbf{Label Recognition:} EasyOCR + Tesseract; template matching of kleine CNN-classifier voor Nutri-Score badges; fallback logica met product lookup.
+\item \textbf{Spatial Analysis:} Verticale zoneclassificatie, facing counting, shelf share berekening, label zichtbaarheidscore.
+\item \textbf{Analyse:} Statistische tests (chi-kwadraat, ANOVA/Kruskal-Wallis, regressie), validatie tegen handmatige ground-truth.
+\item \textbf{Visualisatie:} Annotated images, heatmaps, KPI dashboard (Streamlit/Plotly Dash), export CSV/PDF.
 \end{enumerate}
 
 \subsection{Tools}
 
-\textbf{Hardware:} GPU-workstation (min. 16 GB VRAM, b.v. RTX 3080), smartphone/mirrorless camera met referentiekaart.  
+\textbf{Hardware:} GPU-workstation (min. $16$ GB VRAM, b.v. RTX $3080$), smartphone/mirrorless camera met referentiekaart.  
 
-\textbf{Software:} Python 3.9+, PyTorch/TensorFlow, Ultralytics YOLOv8, OpenCV, Albumentations, EasyOCR/Tesseract, pandas/numpy/scikit-learn, matplotlib/plotly, Streamlit/Dash, Docker, Git.  
+\textbf{Software:} Python $3.9+$, PyTorch/TensorFlow, Ultralytics YOLOv8, OpenCV, Albumentations, EasyOCR/Tesseract, pandas/numpy/scikit-learn, matplotlib/plotly, Streamlit/Dash, Docker, Git.  
 
 \subsection{Validatie en evaluatie}
 
 \begin{itemize}
-    \item Detection: mAP@0.5, mAP@0.5:0.95, Precision, Recall.
-    \item Labelherkenning: Accuracy, F1 per labeltype.
-    \item Spatial metrics: % afwijking schapruimte, facing count error.
-    \item Statistische analyse: p-waarden, odds ratios, betrouwbaarheidsintervallen.
+\item Detection: mAP@0.5, mAP@0.5:0.95, Precision, Recall.
+\item Labelherkenning: Accuracy, F1 per labeltype.
+\item Spatial metrics: afwijking schapruimte, facing count error.
+\item Statistische analyse: p-waarden, odds ratios, betrouwbaarheidsintervallen.
 \end{itemize}
 
 \subsection{Tijdsschatting (modulair)}
 
 \begin{enumerate}
-    \item Data-acquisitie & annotatie: 4--5 weken.
-    \item Modelontwikkeling (YOLOv8 detectie, label recognition, augmentatie): 5 weken.
-    \item Spatial analysis & validatie: 3 weken.
-    \item Visualisatie & dashboard: 2 weken.
-    \item Rapportage en conclusie: 2 weken.
+\item Data-acquisitie en annotatie: $4-5$ weken.
+\item Modelontwikkeling (YOLOv8 detectie, label recognition, augmentatie): $5$ weken.
+\item Spatial analysis en validatie: $3$ weken.
+\item Visualisatie en dashboard: $2$ weken.
+\item Rapportage en conclusie: $2$ weken.
 \end{enumerate}
 
 \section{Verwachte resultaten}
 
 \begin{itemize}
-    \item Reproduceerbare pipeline voor productdetectie, Nutri-Score herkenning en schapanalyse.
-    \item Benchmarkresultaten YOLOv8 vs Faster R-CNN\: nauwkeurigheid vs inference tijd.
-    \item Statistische correlatieanalyse: verband verticale schappositie vs Nutri-Score, incl\. odds ratios.
-    \item KPI-dashboard voor category management en beleidsmonitoring.
+\item Reproduceerbare pipeline voor productdetectie, Nutri-Score herkenning en schapanalyse.
+\item Benchmarkresultaten YOLOv8 vs Faster R-CNN: nauwkeurigheid vs inference tijd.
+\item Statistische correlatieanalyse: verband verticale schappositie vs Nutri-Score, incl. odds ratios.
+\item KPI-dashboard voor category management en beleidsmonitoring.
 \end{itemize}
 
 \subsection{Impact voor doelgroep}
 
 \begin{itemize}
-    \item \textbf{Category managers:} objectieve data voor schapoptimalisatie, inzicht in positioning van gezonde producten.
-    \item \textbf{Beleidsmakers:} empirisch bewijs voor regulering/ethische marketing en evaluatie Vlaamse eiwitstrategie.
-    \item \textbf{Retail consultants:} schaalbare monitoringtool voor advies en A/B testen van schaplayouts.
+\item \textbf{Category managers:} objectieve data voor schapoptimalisatie, inzicht in positioning van gezonde producten.
+\item \textbf{Beleidsmakers:} empirisch bewijs voor regulering/ethische marketing en evaluatie Vlaamse eiwitstrategie.
+\item \textbf{Retail consultants:} schaalbare monitoringtool voor advies en A/B testen van schaplayouts.
 \end{itemize}
 
 \section{Conclusie}
 
-Dit onderzoek ontwikkelt een technisch robuuste, multimodale AI-pipeline voor **detectie, labelherkenning en spatial analysis** van plant-based producten in Belgische supermarkten. Het combineert state-of-the-art object detection (YOLOv8), OCR/template-based labelherkenning en nauwkeurige spatial metrics (facing counts, shelf share) op een gelabelde, regionale dataset. Verwachte resultaten omvatten reproduceerbare KPI’s en visualisaties, statistische evaluaties van schappositie vs Nutri-Score, en praktische tools voor retailers en beleidsmakers. Hiermee levert het onderzoek zowel wetenschappelijke als maatschappelijke meerwaarde.
+Dit onderzoek ontwikkelt een technisch robuuste, multimodale AI-pipeline voor \textbf{detectie, labelherkenning en spatial analysis} van plant-based producten in Belgische supermarkten. Het combineert state-of-the-art object detection (YOLOv8), OCR/template-based labelherkenning en nauwkeurige spatial metrics (facing counts, shelf share) op een gelabelde, regionale dataset. Verwachte resultaten omvatten reproduceerbare KPI’s en visualisaties, statistische evaluaties van schappositie vs Nutri-Score, en praktische tools voor retailers en beleidsmakers. Hiermee levert het onderzoek zowel wetenschappelijke als maatschappelijke meerwaarde.
 
 \printbibliography[heading=bibintoc]
 
